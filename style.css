@@ -1098,13 +1098,14 @@ body {
 .about-section-scroll {
     background: var(--bg-secondary);
     position: relative;
-    overflow: hidden;
+    /* overflow убран чтобы sticky работал */
 }
 
 /* Контейнер скролл-зума */
 .scroll-zoom-container {
     position: relative;
     height: 200vh;
+    background: var(--bg-secondary);
 }
 
 .scroll-zoom-sticky {
@@ -1116,6 +1117,16 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    overflow: hidden;
+}
+
+/* Плавающие фигуры внутри sticky */
+.floating-shapes-fixed {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .scroll-zoom-content {
