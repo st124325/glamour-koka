@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="dontblowmyslatt - Профессиональные биты для артистов.">
+    <title>dontblowmyslatt | Битмейкер & Продюсер</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ========== HEADER / ШАПКА ========== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="dontblowmyslatt" class="logo-img" onerror="this.onerror=null; this.src='images/logo.png';">
+                <span class="logo-text">dontblowmy<span class="accent">slatt</span></span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Главная</a></li>
+                    <li><a href="#beats" class="nav-link">Биты</a></li>
+                    <li><a href="#services" class="nav-link">Услуги</a></li>
+                    <li><a href="#about" class="nav-link">Обо мне</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Бургер-меню для мобильных -->
+            <button class="burger" id="burger" aria-label="Открыть меню">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <!-- Можно заменить на видео: -->
+            <!-- <video autoplay muted loop playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+            </video> -->
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <!-- Надпись разработчика -->
+            <div class="dev-promo">
+                <a href="https://t.me/dolepp_dev" target="_blank" class="dev-promo-link">
+                    <i class="fas fa-code"></i>
+                    <span>Разработка сайтов и Telegram-ботов</span>
+                    <span class="dev-promo-channel">Портфолио работ</span>
+                </a>
+                <a href="https://t.me/dolepp" target="_blank" class="dev-promo-contact">
+                    <i class="fab fa-telegram"></i> @dolepp
+                </a>
+            </div>
+            
+            <div class="hero-badge">
+                <i class="fas fa-headphones"></i>
+                <span>Beatmaker & Producer</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="hero-title-line">dontblowmy</span>
+                <span class="hero-title-line accent">slatt</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Создаю уникальные биты, которые выделят твой трек из толпы.
+                <br>Trap • Drill • Lo-Fi • Pop
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#beats" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                    Слушать биты
+                </a>
+                <a href="#contacts" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i>
+                    Связаться
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Битов создано</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Довольных клиентов</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Лет опыта</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Листай вниз</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ========== BEATS SECTION / БИБЛИОТЕКА БИТОВ ========== -->
+    <section class="beats-section" id="beats">
+        <!-- Анимированный фон с точками -->
+        <canvas id="dotCanvas" class="dot-background"></canvas>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Портфолио</span>
+                <h2 class="section-title">Мои <span class="accent">биты</span></h2>
+                <p class="section-description">
+                    Выбери жанр и найди идеальный бит для своего трека
+                </p>
+            </div>
+            
+            <!-- Фильтры по жанрам -->
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-genre="all">
+                    <i class="fas fa-th-large"></i>
+                    Все биты
+                </button>
+            </div>
+            
+            <!-- Сетка битов (генерируется через JS) -->
+            <div class="beats-grid" id="beatsGrid">
+                <!-- Карточки битов будут добавлены через JavaScript -->
+            </div>
+            
+            <!-- Пустое состояние -->
+            <div class="beats-empty" id="beatsEmpty" style="display: none;">
+                <i class="fas fa-music"></i>
+                <p>Биты в этом жанре скоро появятся!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES SECTION / УСЛУГИ ========== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Что я предлагаю</span>
+                <h2 class="section-title">Мои <span class="accent">услуги</span></h2>
+                <p class="section-description">
+                    Полный спектр услуг для создания профессионального звучания
+                </p>
+            </div>
+            
+            <!-- Новый дизайн: стекающие карточки -->
+            <div class="display-cards-wrapper">
+                <div class="display-cards">
+                    <!-- Карточка 1: Кастомные биты -->
+                    <div class="display-card card-1">
+                        <div class="display-card-header">
+                            <span class="display-card-icon">
+                                <i class="fas fa-magic"></i>
+                            </span>
+                            <span class="display-card-title">Кастомные биты</span>
+                        </div>
+                        <p class="display-card-description">Уникальный бит с нуля под твой стиль</p>
+                        <ul class="display-card-features">
+                            <li><i class="fas fa-check"></i> Индивидуальный подход</li>
+                            <li><i class="fas fa-check"></i> Неограниченные правки</li>
+                            <li><i class="fas fa-check"></i> Stems включены</li>
+                        </ul>
+                        <span class="display-card-price">от 15 000 ₽</span>
+                    </div>
+                    
+                    <!-- Карточка 2: Сведение -->
+                    <div class="display-card card-2">
+                        <div class="display-card-badge">Популярно</div>
+                        <div class="display-card-header">
+                            <span class="display-card-icon icon-cyan">
+                                <i class="fas fa-sliders-h"></i>
+                            </span>
+                            <span class="display-card-title title-cyan">Сведение</span>
+                        </div>
+                        <p class="display-card-description">Профессиональное сведение вокала</p>
+                        <ul class="display-card-features">
+                            <li><i class="fas fa-check"></i> Обработка вокала</li>
+                            <li><i class="fas fa-check"></i> Баланс инструментов</li>
+                            <li><i class="fas fa-check"></i> 2 правки бесплатно</li>
+                        </ul>
+                        <span class="display-card-price price-cyan">от 5 000 ₽</span>
+                    </div>
+                    
+                    <!-- Карточка 3: Мастеринг -->
+                    <div class="display-card card-3">
+                        <div class="display-card-header">
+                            <span class="display-card-icon icon-green">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                            <span class="display-card-title title-green">Мастеринг</span>
+                        </div>
+                        <p class="display-card-description">Финальная полировка для стриминга</p>
+                        <ul class="display-card-features">
+                            <li><i class="fas fa-check"></i> Оптимизация Spotify/Apple</li>
+                            <li><i class="fas fa-check"></i> Формат WAV 24-bit</li>
+                            <li><i class="fas fa-check"></i> Быстрая доставка</li>
+                        </ul>
+                        <span class="display-card-price price-green">от 3 000 ₽</span>
+                    </div>
+                    
+                    <!-- Карточка 4: Полный пакет -->
+                    <div class="display-card card-4">
+                        <div class="display-card-header">
+                            <span class="display-card-icon icon-purple">
+                                <i class="fas fa-box-open"></i>
+                            </span>
+                            <span class="display-card-title title-purple">Полный пакет</span>
+                        </div>
+                        <p class="display-card-description">Бит + Сведение + Мастеринг</p>
+                        <ul class="display-card-features">
+                            <li><i class="fas fa-check"></i> Всё включено</li>
+                            <li><i class="fas fa-check"></i> Приоритетная работа</li>
+                            <li><i class="fas fa-check"></i> Консультация бесплатно</li>
+                        </ul>
+                        <span class="display-card-price price-purple">от 20 000 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION / ОБО МНЕ ========== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/avatar.jpg" alt="KLAWD BEATS - Битмейкер">
+                    <div class="about-image-decoration"></div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="section-label">Обо мне</span>
+                    <h2 class="section-title">Привет, я <span class="accent">dontblowmyslatt</span></h2>
+                    
+                    <p class="about-text">
+                        Битмейкер и музыкальный продюсер из Москвы. Уже более 5 лет создаю биты 
+                        для артистов по всей России и СНГ. Моя цель — помочь тебе найти свой 
+                        уникальный звук и выделиться среди остальных.
+                    </p>
+                    
+                    <p class="about-text">
+                        Каждый бит — это не просто инструментал, а полноценная история, 
+                        которая ждёт твой голос. Я работаю в различных жанрах: от агрессивного 
+                        дрилла до мелодичного лоу-фай.
+                    </p>
+                    
+                    <div class="about-equipment">
+                        <h4><i class="fas fa-tools"></i> Моё оборудование:</h4>
+                        <div class="equipment-tags">
+                            <span class="tag">FL Studio 21</span>
+                            <span class="tag">Omnisphere</span>
+                            <span class="tag">Serum</span>
+                            <span class="tag">Kontakt</span>
+                            <span class="tag">RC-20</span>
+                            <span class="tag">iZotope Ozone</span>
+                            <span class="tag">FabFilter</span>
+                            <span class="tag">Waves</span>
+                            <span class="tag">Native Instruments</span>
+                            <span class="tag">Audio-Technica ATH-M50x</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-social">
+                        <a href="https://t.me/dontblowmyslatt" target="_blank" class="social-link" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACTS SECTION / КОНТАКТЫ ========== -->
+    <section class="contacts-section" id="contacts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Связаться со мной</span>
+                <h2 class="section-title">Давай <span class="accent">работать</span> вместе</h2>
+                <p class="section-description">
+                    Напиши мне, и я отвечу в течение 24 часов
+                </p>
+            </div>
+            
+            <div class="contacts-center">
+                <!-- Контактная информация -->
+                <div class="contact-info-centered">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/dontblowmyslatt" target="_blank">@dontblowmyslatt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">dontblowmy<span class="accent">slatt</span></span>
+                    <p>Создаю биты с душой</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#hero">Главная</a>
+                    <a href="#beats">Биты</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#about">Обо мне</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://t.me/dontblowmyslatt" target="_blank"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            
+        <div class="footer-bottom">
+            <p>&copy; 2026 dontblowmyslatt. Все права защищены.</p>
+            <p class="footer-dev">
+                <a href="https://t.me/dolepp_dev" target="_blank">
+                    <i class="fas fa-code"></i> Разработка сайтов и Telegram-ботов — @dolepp_dev
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <!-- ========== ГЛОБАЛЬНЫЙ АУДИОПЛЕЕР ========== -->
+    <div class="global-player" id="globalPlayer">
+        <div class="player-container">
+            <!-- Информация о треке -->
+            <div class="player-info">
+                <img src="" alt="" class="player-cover" id="playerCover">
+                <div class="player-track">
+                    <span class="player-title" id="playerTitle">Выбери трек</span>
+                    <span class="player-genre" id="playerGenre">—</span>
+                </div>
+            </div>
+            
+            <!-- Контролы -->
+            <div class="player-controls">
+                <button class="player-btn" id="playerPrev" aria-label="Предыдущий трек">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="player-btn player-btn-main" id="playerPlayPause" aria-label="Воспроизведение">
+                    <i class="fas fa-play" id="playerPlayIcon"></i>
+                </button>
+                <button class="player-btn" id="playerNext" aria-label="Следующий трек">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+            
+            <!-- Прогресс-бар -->
+            <div class="player-progress-wrapper">
+                <span class="player-time" id="playerCurrentTime">0:00</span>
+                <div class="player-progress" id="playerProgress">
+                    <div class="player-progress-bar" id="playerProgressBar"></div>
+                </div>
+                <span class="player-time" id="playerDuration">0:00</span>
+            </div>
+            
+            <!-- Громкость -->
+            <div class="player-volume">
+                <button class="player-btn" id="playerMute" aria-label="Громкость">
+                    <i class="fas fa-volume-up" id="playerVolumeIcon"></i>
+                </button>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
+            </div>
+        </div>
+        
+        <!-- Скрытый аудио элемент -->
+        <audio id="audioElement"></audio>
+    </div>
+
+    <!-- ========== МОДАЛЬНОЕ ОКНО ПОКУПКИ ========== -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Закрыть">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h3>Купить бит</h3>
+                <p class="modal-beat-title" id="modalBeatTitle">Название бита</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="license-options">
+                    <!-- Basic License -->
+                    <div class="license-card">
+                        <div class="license-header">
+                            <h4>Basic</h4>
+                            <span class="license-price">2 990 ₽</span>
+                        </div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> MP3 файл</li>
+                            <li><i class="fas fa-check"></i> До 10 000 прослушиваний</li>
+                            <li><i class="fas fa-check"></i> Использование в 1 треке</li>
+                            <li><i class="fas fa-times"></i> Stems не включены</li>
+                        </ul>
+                        <a href="https://beatstars.com" target="_blank" class="btn btn-outline btn-full">
+                            Выбрать
+                        </a>
+                    </div>
+                    
+                    <!-- Premium License -->
+                    <div class="license-card featured">
+                        <div class="license-badge">Рекомендуем</div>
+                        <div class="license-header">
+                            <h4>Premium</h4>
+                            <span class="license-price">7 990 ₽</span>
+                        </div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> WAV + MP3 файлы</li>
+                            <li><i class="fas fa-check"></i> До 100 000 прослушиваний</li>
+                            <li><i class="fas fa-check"></i> Использование в 2 треках</li>
+                            <li><i class="fas fa-check"></i> Stems включены</li>
+                        </ul>
+                        <a href="https://beatstars.com" target="_blank" class="btn btn-primary btn-full">
+                            Выбрать
+                        </a>
+                    </div>
+                    
+                    <!-- Exclusive License -->
+                    <div class="license-card">
+                        <div class="license-header">
+                            <h4>Exclusive</h4>
+                            <span class="license-price">29 990 ₽</span>
+                        </div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> WAV + MP3 + Stems</li>
+                            <li><i class="fas fa-check"></i> Безлимитные прослушивания</li>
+                            <li><i class="fas fa-check"></i> Полные права</li>
+                            <li><i class="fas fa-check"></i> Бит удаляется из продажи</li>
+                        </ul>
+                        <a href="https://beatstars.com" target="_blank" class="btn btn-outline btn-full">
+                            Выбрать
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <p>
+                    <i class="fas fa-shield-alt"></i>
+                    Безопасная оплата через BeatStars
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
