@@ -48,20 +48,6 @@
     box-sizing: border-box;
 }
 
-/* Стили для редактируемых элементов */
-[contenteditable="true"] {
-    outline: none;
-    cursor: text;
-    caret-color: var(--accent-primary);
-    position: relative;
-}
-
-[contenteditable="true"]:focus {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
